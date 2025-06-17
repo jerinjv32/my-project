@@ -1,7 +1,7 @@
 def menu():
     file_path = "myfile.txt"
     while True:
-        choice = input("\n\t\t===MENU===\n\t1).Add\n\t2).Check\n\t3).View\n\t^).Exit\nOption:")
+        choice = input("\n\t\t===MENU===\n\t1).Add\n\t2).Remove\n\t3).View\n\t^).Exit\nOption:")
         match choice:
             case '1':
                 file_manage(file_path, "a", view)            
@@ -35,8 +35,16 @@ def file_manage(path, action, callback):
                         callback('No Change\n')
                 case 'r+':
                     line_no = int(input("Enter the line to be deleted:"))
-                    content = file.readlines()
-                    print(content)
+                    line = file.readlines()
+
+                    if 1 <= line_no <= len(line):
+                        del line[line_no - 1]
+                        file.seek(0)
+                        file.truncate()
+                        file.writelines(line)
+                        print('Line deleted Successfully\n')
+                    else:
+                        print("[Failed]\n")
     except FileNotFoundError:
         print(f"[File {path} not found]\n")
     except Exception as e:
