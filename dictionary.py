@@ -3,15 +3,22 @@ school = {
     "2023A002": {"name": "Bob", "class": "10", "section": "B"}
 }
 
+# school = {
+#     "name": "madhu",
+#     "class": "10",
+#     "section": "C"
+# }
+
+print(len(school))
 # for x, name in school.items():
 #     print(f"Admission no: {x}")
 #     for key, value in name.items():
-#         print(f"{key}:{value}")
-for key, value in school.items():
-    print(f"Admission no:{key}")
-    print(f"name:{value["name"]}")
-    print(f"class:{value["class"]}")
-    print(f"section:{value["section"]}")
+# #         print(f"{key}:{value}")
+# for key, value in school.items():
+#     print(f"Admission no:{key}")
+#     print(f"name:{value["name"]}")
+#     print(f"class:{value["class"]}")
+#     print(f"section:{value["section"]}")
 # from csv import DictReader
 # contact_list = {}
 # with open("contact_list.csv", newline = "") as file:
